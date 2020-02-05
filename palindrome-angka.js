@@ -1,18 +1,18 @@
 // Palindrome Angka
-function angkaYangSudahDibalik(nomorAsli) {
-    var nomorYangDiBalik = '';
-    var nomor = String(nomorAsli);
-    var num = 1;
-    var panjangNomor = nomor.length
-    for (i = 0; i < nomor.length; i++) {
-        nomorYangDiBalik += nomor[panjangNomor - num]
-        num++
-    }
-    return nomorYangDiBalik
-}
-
 function angkaPalindrome(num) {
     // you can only write your code here!
+    function angkaYangSudahDibalik(num) {
+        var nomorYangDiBalik = '';
+        var nomor = String(num);
+        var count = 1;
+        var panjangNomor = nomor.length
+        for (i = 0; i < nomor.length; i++) {
+            nomorYangDiBalik += nomor[panjangNomor - count]
+            count++
+        }
+        return nomorYangDiBalik
+    }
+
     num++
     var check = true;
     while (true) {
