@@ -24,7 +24,15 @@ function pasanganTerbesar(num) {
             num2 += 1
             pasanganAngka2 = 0;
             pasanganAngka1 = 0;
-        } else if(pasanganAngka1 < pasanganAngka2) {
+        } else if (pasanganAngka1 < pasanganAngka2) {
+            arrEleminasi.push(pasanganAngka1)
+            angkaTerbesar = 0;
+            angkaTerbesar += pasanganAngka2
+            pasanganAngka1 = 0;
+            pasanganAngka2 = 0;
+            num1 = num2
+            num2 += 1
+        } else if (pasanganAngka1 == pasanganAngka2) {
             arrEleminasi.push(pasanganAngka1)
             angkaTerbesar = 0;
             angkaTerbesar += pasanganAngka2
