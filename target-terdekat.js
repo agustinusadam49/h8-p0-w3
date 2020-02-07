@@ -16,15 +16,17 @@ function targetTerdekat(arr) {
     function cariJarakKanan(arr) {
         var indexO = cariIndexO(arr)
         var countToRight = 0;
-        for (j = indexO; j < arr.length; j++) {
-            if (j < arr.length - 1) {
-                if (arr[j] == 'x') {
+        var num = indexO
+        for (j = 0; j < arr.length; j++) {
+            if (num <= arr.length) {
+                if (arr[num] == 'x') {
                     return countToRight
                 } else {
+                    num += 1
                     countToRight += 1
                 }
-            } else {
-                countToRight = 0;
+            } else if (num > arr.length) {
+                countToRight = 0
                 return countToRight
             }
         }
@@ -44,7 +46,7 @@ function targetTerdekat(arr) {
                     countToLeft += 1;
                 }
             } else if (num < 0)  {
-                countToLeft = 0;
+                countToLeft = 0
                 return countToLeft;
             }
         }
@@ -53,16 +55,22 @@ function targetTerdekat(arr) {
     // 4. Bandingkan jarak kanan dan kiri
     var jarakKanan = cariJarakKanan(arr)
     var jarakKiri = cariJarakKiri(arr)
-    if (jarakKanan > jarakKiri) {
+
+    if (jarakKanan && jarakKiri === 0) {
         return jarakKanan
-    } else if (jarakKanan < jarakKiri) {
+    } else if (jarakKiri && jarakKanan === 0) {
         return jarakKiri
-    } else {
+    } else if (jarakKanan < jarakKiri) {
+        return jarakKanan
+    } else if (jarakKanan > jarakKiri) {
+        return jarakKiri
+    } else if (jarakKanan == 0 && jarakKiri == 0) {
         return 0
     }
 }
 
 // TEST CASES
+console.log('HACKTIV8 TEST CASES')
 console.log(targetTerdekat([' ', ' ', 'o', ' ', ' ', 'x', ' ', 'x'])); // 3
 console.log(targetTerdekat(['o', ' ', ' ', ' ', 'x', 'x', 'x'])); // 4
 console.log(targetTerdekat(['x', ' ', ' ', ' ', 'x', 'x', 'o', ' '])); // 1
